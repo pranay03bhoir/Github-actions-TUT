@@ -1,26 +1,49 @@
+# Defines the display name of the workflow in GitHub's Actions tab
 name: Dev Workflow
 
+# Specifies the event triggers that execute this workflow
 on:
+    # Triggers the workflow when code is pushed to the repository
     push:
+        # Filters the push event to target specific branches
         branches:
+            # Specifies that pushes to the 'dev' branch will trigger this workflow
             - dev
+    # Allows manual triggering of this workflow from the GitHub Actions UI or API
     workflow_dispatch:
 
+# Defines the collection of jobs to run in this workflow
 jobs:
+    # Unique identifier for the first job
     job1:
+        # Display name for job1 in the GitHub Actions UI
         name: Print Hello World
+        # Specifies the virtual machine runner environment (Ubuntu Linux)
         runs-on: ubuntu-latest
+        # List of sequential steps to execute in job1
         steps:
+            # Display name for the step in job1
             - name: Print Hello World
+              # Shell command to print "Hello World" to the log console
               run: echo "Hello World"
 
+    # Unique identifier for the second job (runs in parallel with job1)
     job2:
+        # Display name for job2 in the GitHub Actions UI
         name: Print Directory and User
+        # Specifies the virtual machine runner environment (Ubuntu Linux)
         runs-on: ubuntu-latest
+        # List of sequential steps to execute in job2
         steps:
+            # Display name for the first step in job2
             - name: Print Directory
+              # Block scalar indicator (|) for multi-line shell script commands
               run: |
+                  # Shell command evaluating $(pwd) to print the current working directory path
                   echo "Current Directory: $(pwd)"
+            # Display name for the second step in job2
             - name: Print User
+              # Block scalar indicator (|) for multi-line shell script commands
               run: |
+                  # Shell command evaluating $(whoami) to print the current system username
                   echo "Current User: $(whoami)"
