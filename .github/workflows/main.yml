@@ -1,20 +1,35 @@
+# Defines the display name of the workflow in GitHub's Actions tab
 name: Print World
 
+# Specifies the event triggers that cause this workflow to run
 on: 
+  # Triggers the workflow when code is pushed to the repository
   push:
+    # Filters the push trigger to run only on specific branches
     branches:
+      # Specifies that pushes to the 'main' branch trigger this workflow
       - main
 
+# Group of jobs that will be executed as part of this workflow
 jobs:
+  # Unique identifier for the first job
   job1:
+    # Specifies the runner environment (virtual machine) for job1
     runs-on: ubuntu-latest
+    # List of sequential steps to execute within job1
     steps:
+      # Human-readable name for the first step
       - name: Print Hello World
+        # Shell command to execute and log to the console
         run: echo "Hello World From GitHub Actions"
 
+  # Unique identifier for the second job (runs in parallel with job1)
   job2:
+    # Specifies the runner environment (virtual machine) for job2
     runs-on: ubuntu-latest
+    # List of sequential steps to execute within job2
     steps:
+      # Human-readable name for the step in job2
       - name: Welcome Message
+        # Shell command to execute and log to the console
         run: echo "Welcome to GitHub Actions"
-  
