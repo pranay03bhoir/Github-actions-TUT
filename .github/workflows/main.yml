@@ -2,7 +2,7 @@
 name: Print World
 
 # Specifies the event triggers that cause this workflow to run
-on: 
+on:
   # Triggers the workflow when code is pushed to the repository
   push:
     # Filters the push trigger to run only on specific branches
@@ -13,7 +13,7 @@ on:
 # Group of jobs that will be executed as part of this workflow
 jobs:
   # Unique identifier for the first job
-  job1:
+  build:
     # Specifies the runner environment (virtual machine) for job1
     runs-on: ubuntu-latest
     # List of sequential steps to execute within job1
@@ -24,7 +24,7 @@ jobs:
         run: echo "Hello World From GitHub Actions"
 
   # Unique identifier for the second job (runs in parallel with job1)
-  job2:
+  deploy:
     # Specifies the runner environment (virtual machine) for job2
     runs-on: ubuntu-latest
     # List of sequential steps to execute within job2
